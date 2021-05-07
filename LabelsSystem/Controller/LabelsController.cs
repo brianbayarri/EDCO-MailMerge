@@ -25,11 +25,11 @@ namespace LabelsSystem.Controller
 
         public void GenerateLabelsDocument()
         {
-            var result = _wordFileProcess.ReplaceMergeFields(templatePath, tempPath);
-            if (result)
+            var resultOfReplaceFields = _wordFileProcess.ReplaceMergeFields(templatePath, tempPath);
+            if (resultOfReplaceFields)
             {
-                var result2 = _wordFileProcess.RemoveHeader(tempPath);
-                if (result2)
+                var resultOfRemoveHeaders = _wordFileProcess.RemoveHeader(tempPath);
+                if (resultOfRemoveHeaders)
                 {
                     _pdfFileProcess.GeneratePdfFile(tempPath, outputPath);
                 }
